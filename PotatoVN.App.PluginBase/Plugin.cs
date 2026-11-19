@@ -20,8 +20,8 @@ namespace PotatoVN.App.PluginBase
         {
             //todo: 请务必随机生成一个新的Guid，切勿使用这个示例Guid，否则可能会和其他使用了同一Guid的插件发生冲突
             Id = new Guid("78f4ca27-7ffb-43b2-a5a5-111111db096d"), 
-            Name = "插件示例",
-            Description = "这是一个示范插件！\n这是第二行描述",
+            Name = "Steam愿望单史低提醒",
+            Description = "想要补票Steam上的gal（被G胖掏空钱包），用这个插件就对了",
         };
 
         public async Task InitializeAsync(IPotatoVnApi hostApi)
@@ -29,7 +29,7 @@ namespace PotatoVN.App.PluginBase
             _hostApi = hostApi;
             HostApi = hostApi;
             XamlResourceLocatorFactory.PackagePath = _hostApi.GetPluginPath();
-            PluginLocalization.Initialize(hostApi); //初始化插件多国语言支持，如果你的插件不需要支持多语言，可以不调用这个方法，直接在代码里写死字符串即可。
+            // PluginLocalization.Initialize(hostApi); //初始化插件多国语言支持，如果你的插件不需要支持多语言，可以不调用这个方法，直接在代码里写死字符串即可。
             ResourceLoader.Initialize(); //初始化XAML字典加载器，资源用法请参考ResourceLoader类的注释
             var dataJson = await _hostApi.GetDataAsync();
             if (!string.IsNullOrWhiteSpace(dataJson))
